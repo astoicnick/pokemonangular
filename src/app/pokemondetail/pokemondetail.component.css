@@ -1,0 +1,31 @@
+.pokemondetails{
+
+  text-align:center;
+  color:red;
+  border-top-color: red;
+
+border-top-width: 5px;
+
+border-top-style: solid;
+
+border-right-color: yellow;
+
+border-right-width: 5px;
+
+border-right-style: solid;
+
+border-bottom-color: green;
+
+border-bottom-width: 5px;
+
+border-bottom-style: solid;
+
+border-left-color: blue;
+
+border-left-width: 5px;
+
+border-left-style: solid;
+
+
+
+}
