@@ -45,8 +45,18 @@ pokemonvar: Observable<pokemon[]>;
     return this.pokedetailvar;
      
    }
-   getAllPokemon(): Observable<[]> {
+   getAllPokemon(): Observable<pokemon[]> {
      this.pokemonvar;
     return this.http.get<[]>(`${this.url}pokemon`);
    }
+   getImages(urls: string[]): string[] {
+    var imageArray: string[] = [];
+    urls.forEach(url => {
+      var blank = this.http.get<string>(`${url}`)
+      .subscribe(s => {
+        imageArray.push(s.sprites.front_default);
+      })
+    });
+    return imageArray;
+  }
 }
