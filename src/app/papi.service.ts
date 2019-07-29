@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient }    from '@angular/common/http';
-import{pokedetail} from './models/pokedetail';
+import{ pokedetail } from './models/pokedetail';
+import { pokemon } from './models/pokemon';
+import 'rxjs';
+import { ConsoleReporter } from 'jasmine';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +20,9 @@ pokedetailvar: pokedetail = {
   pokedexdescription: "",
   pokedexurl: `https://pokeapi.co/api/v2/pokemon-species`
 };
-
+pokemonvar: pokemon[] = [];
+blankpokevar: [];
   constructor(private http: HttpClient) {
-
    }
    getDetailPokemon(): pokedetail{
      var pokemon = "mudkip";
@@ -41,5 +44,15 @@ pokedetailvar: pokedetail = {
      
     return this.pokedetailvar;
      
+   }
+   getAllPokemon(): []{
+    var req:any[];
+    var res = this.http.get<pokemon[]>(`${this.url}pokemon`)
+    .subscribe(poke=> {
+      this.blankpokevar = poke.results;
+      console.log(this.blankpokevar);
+      return this.blankpokevar
+    });
+    return this.blankpokevar;
    }
 }
