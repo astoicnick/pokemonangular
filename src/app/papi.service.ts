@@ -34,7 +34,7 @@ blankpokevar: [];
       this.pokedetailvar.ability2 = p.abilities[1].ability.name;
       this.pokedetailvar.type = p.types[0].type.name;
       this.pokedetailvar.spritefront = p.sprites.front_default;
-      https://pokeapi.co/api/v2/pokemon-species/1
+      
       request = this.http.get(`${this.pokedetailvar.pokedexurl}/258`);
       request.subscribe(p=>{
         this.pokedetailvar.pokedexdescription = p.flavor_text_entries[1].flavor_text;

@@ -9,9 +9,18 @@
             
             <img class = "spritefront" mat-card-image src={{pokemonToDisplay.spritefront}} alt="Photo of a {{pokemonToDisplay.name}}">
             <mat-card-content>
+                <hr>
+                abilities
+                <p>
+                    {{pokemonToDisplay.ability}}, {{pokemonToDisplay.ability2}}
+                </p>
+                
+                <br>
                 <p>
                     {{pokemonToDisplay.pokedexdescription}}
                 </p>
+                
+
             </mat-card-content>
         </mat-card>
 
