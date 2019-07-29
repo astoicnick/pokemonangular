@@ -24,7 +24,6 @@ imageArray: string[] = [];
       this.pokemonList = p.results;
       this.getUrls();
     });
-
   }
   getUrls() {
     var urlArray: string[] = [];
@@ -37,3 +36,4 @@ imageArray: string[] = [];
   
 
 }
+
