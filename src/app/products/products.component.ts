@@ -15,6 +15,7 @@ blankpokevar: [];
   constructor(private PokemonService: PapiService) { }  
 
   ngOnInit() {
-  console.log(this.PokemonService.getAllPokemon());
+  console.log(this.PokemonService.getAllPokemon())
   }
 }
+
