@@ -12,7 +12,10 @@ pokedetailvar: pokedetail = {
   name: "",
   ability : "",
   ability2 : "",
-  type : ""
+  type : "",
+  spritefront: "",
+  pokedexdescription: "",
+  pokedexurl: `https://pokeapi.co/api/v2/pokemon-species`
 };
 
   constructor(private http: HttpClient) {
@@ -27,6 +30,13 @@ pokedetailvar: pokedetail = {
       this.pokedetailvar.ability = p.abilities[0].ability.name;
       this.pokedetailvar.ability2 = p.abilities[1].ability.name;
       this.pokedetailvar.type = p.types[0].type.name;
+      this.pokedetailvar.spritefront = p.sprites.front_default;
+      https://pokeapi.co/api/v2/pokemon-species/1
+      request = this.http.get(`${this.pokedetailvar.pokedexurl}/258`);
+      request.subscribe(p=>{
+        this.pokedetailvar.pokedexdescription = p.flavor_text_entries[1].flavor_text;
+      })
+      
      })
      
     return this.pokedetailvar;
