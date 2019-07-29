@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PapiService } from '../papi.service';
 import { pokemon } from '../models/pokemon';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -8,13 +9,17 @@ import { pokemon } from '../models/pokemon';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-pokemonList: any[];
-blankpokevar: [];
-
+pokemonList: Observable<pokemon[]>;
 
   constructor(private PokemonService: PapiService) { }  
 
   ngOnInit() {
-  console.log(this.PokemonService.getAllPokemon());
+    this.getPokemon();
+  }
+  getPokemon() {
+    var blank: [];
+    this.PokemonService.getAllPokemon()
+    .subscribe(p =>
+      this.pokemonList = p.results);
   }
 }
