@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { pokedetail } from '../models/pokedetail';
+import {PapiService} from '../papi.service';
 @Component({
   selector: 'app-pokemondetail',
   templateUrl: './pokemondetail.component.html',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemondetailComponent implements OnInit {
 stringToDisplay: string = "Hey";
-  constructor() { }
+pokemonToDisplay: pokedetail;
 
-  ngOnInit() {
+  constructor(private papi: PapiService) { 
+
+
   }
 
+  ngOnInit() {
+    this.getPokemon();
+  }
+
+  getPokemon(){
+    this.pokemonToDisplay = this.papi.getDetailPokemon();
+  }
 }
