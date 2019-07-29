@@ -1,1 +1,8 @@
-<p>products works!</p>
+<div *ngFor="let pokemon of pokemonList">
+    <div *ngFor="let image of imageArray">
+        <img src="{{image}}" alt="Yes">
+    </div>
+    <p>{{pokemon.name}}</p>
+    <p>{{pokemon.url}}</p>
+    <p>{{pokemon}}</p>
+</div>

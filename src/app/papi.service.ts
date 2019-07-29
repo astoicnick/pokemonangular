@@ -3,7 +3,7 @@ import { HttpClient }    from '@angular/common/http';
 import{ pokedetail } from './models/pokedetail';
 import { pokemon } from './models/pokemon';
 import 'rxjs';
-import { ConsoleReporter } from 'jasmine';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +15,13 @@ pokedetailvar: pokedetail = {
   name: "",
   ability : "",
   ability2 : "",
-  type : ""
+  type : "",
+  spritefront: "",
+  pokedexdescription: "",
+  pokedexurl: `https://pokeapi.co/api/v2/pokemon-species`
 };
-pokemonvar: pokemon[] = [];
-blankpokevar: [];
+pokemonvar: Observable<pokemon[]>;
+
   constructor(private http: HttpClient) {
    }
    getDetailPokemon(): pokedetail{
@@ -30,19 +33,30 @@ blankpokevar: [];
       this.pokedetailvar.ability = p.abilities[0].ability.name;
       this.pokedetailvar.ability2 = p.abilities[1].ability.name;
       this.pokedetailvar.type = p.types[0].type.name;
+      this.pokedetailvar.spritefront = p.sprites.front_default;
+      
+      request = this.http.get(`${this.pokedetailvar.pokedexurl}/258`);
+      request.subscribe(p=>{
+        this.pokedetailvar.pokedexdescription = p.flavor_text_entries[1].flavor_text;
+      })
+      
      })
      
     return this.pokedetailvar;
      
    }
-   getAllPokemon(): []{
-    var req:any[];
-    var res = this.http.get<pokemon[]>(`${this.url}pokemon`)
-    .subscribe(poke=> {
-      this.blankpokevar = poke.results;
-      console.log(this.blankpokevar);
-      return this.blankpokevar
-    });
-    return this.blankpokevar;
+   getAllPokemon(): Observable<pokemon[]> {
+     this.pokemonvar;
+    return this.http.get<[]>(`${this.url}pokemon`);
    }
+   getImages(urls: string[]): string[] {
+    var imageArray: string[] = [];
+    urls.forEach(url => {
+      var blank = this.http.get<string>(`${url}`)
+      .subscribe(s => {
+        imageArray.push(s.sprites.front_default);
+      })
+    });
+    return imageArray;
+  }
 }

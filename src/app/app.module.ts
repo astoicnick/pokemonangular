@@ -7,12 +7,16 @@ import { PokemondetailComponent } from './pokemondetail/pokemondetail.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { matImports } from './matImports';
 import { ProductsComponent } from './products/products.component';
+import { AboutComponent } from './about/about.component';
+import { EvolutionComponent } from './evolution/evolution.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemondetailComponent,
-    ProductsComponent
+    ProductsComponent,
+    AboutComponent,
+    EvolutionComponent
   ],
   imports: [
     BrowserModule,
