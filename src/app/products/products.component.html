@@ -1,0 +1,23 @@
+<div fxLaout="column" style="text-align: center;">
+    <button fxFlex="50%"(click)="PrevPage()" mat-raised-button style="margin-right: 20px;">Prev</button>
+    <button fxFlex="50%"(click)="NextPage()" mat-raised-button style="margin-left: 20px;">Next</button>
+</div>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+     <div class="item item-1" fxFlex="15%">
+        <div class="item item-2" fxFlex="20%" fxFlexOrder="3">
+            <div class="item item-3" fxFlex>
+                <div *ngFor="let pokemon of pokemonList; let i = index" class="margin-left-padding">
+                    <div flex>
+                        <mat-card class="mat-card-styling">
+                            <p style="text-align: center">{{pokemon.name}}</p>
+                            <img style="height: 14vw; width: 14vw;margin: 0 auto;" src="{{imageArray[i]}}" alt="Yes">
+                            <mat-card-actions class="Center">
+                                <button mat-raised-button (click)="detail(pokemon.url)"color="primary">Details</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

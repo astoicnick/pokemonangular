@@ -1,34 +1,35 @@
 .pokemondetails{
+text-align:center;
+  
+border-top-color: black;
 
-  text-align:center;
-  color:red;
-  border-top-color: red;
-
-border-top-width: 5px;
+border-top-width: 1px;
 
 border-top-style: solid;
 
-border-right-color: yellow;
+border-right-color: black;
 
-border-right-width: 5px;
+border-right-width: 1px;
 
 border-right-style: solid;
 
-border-bottom-color: green;
+border-bottom-color: black;
 
-border-bottom-width: 5px;
+border-bottom-width: 1px;
 
 border-bottom-style: solid;
 
-border-left-color: blue;
+border-left-color: black;
 
-border-left-width: 5px;
+border-left-width: 1px;
 
 border-left-style: solid;
 
-
-
+text-align: center;
 }
-ul{
-    list-style:none;
+.spritefront{
+  width:25%;
+}
+.mat-card {
+  text-align: center;
 }
