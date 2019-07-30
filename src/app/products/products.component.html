@@ -1,8 +1,19 @@
-<div *ngFor="let pokemon of pokemonList">
-    <div *ngFor="let image of imageArray">
-        <img src="{{image}}" alt="Yes">
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+     <div class="item item-1" fxFlex="15%">
+        <div class="item item-2" fxFlex="20%" fxFlexOrder="3">
+            <div class="item item-3" fxFlex>
+                <div *ngFor="let pokemon of pokemonList; let i = index" class="margin-left-padding">
+                    <div flex>
+                        <mat-card class="mat-card-styling">
+                            <p style="text-align: center">{{pokemon.name}}</p>
+                            <img style="height: 14vw; width: 14vw;margin: 0 auto;" src="{{imageArray[i]}}" alt="Yes">
+                            <mat-card-actions class="Center">
+                                <button mat-raised-button color="accent">Details</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <p>{{pokemon.name}}</p>
-    <p>{{pokemon.url}}</p>
-    <p>{{pokemon}}</p>
 </div>
