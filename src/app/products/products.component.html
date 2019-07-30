@@ -1,8 +1,5 @@
-<div *ngFor="let pokemon of pokemonList">
-    <div *ngFor="let image of imageArray">
-        <img src="{{image}}" alt="Yes">
-    </div>
+<div *ngFor="let pokemon of pokemonList;let i = index">
+        <img src="{{imageArray[i]}}" alt="Yes">
     <p>{{pokemon.name}}</p>
-    <p>{{pokemon.url}}</p>
-    <p>{{pokemon}}</p>
+    <button mat-raised-button (click)="detail(pokemon.url)"color="primary">Hey</button>
 </div>

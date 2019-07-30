@@ -9,6 +9,7 @@ import { matImports } from './matImports';
 import { ProductsComponent } from './products/products.component';
 import { AboutComponent } from './about/about.component';
 import { EvolutionComponent } from './evolution/evolution.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { EvolutionComponent } from './evolution/evolution.component';
     PokemondetailComponent,
     ProductsComponent,
     AboutComponent,
-    EvolutionComponent
+    EvolutionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

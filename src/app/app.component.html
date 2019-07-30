@@ -1,5 +1,5 @@
 <mat-toolbar color="accent">
-        <img style="height: 50px;" src="https://i.imgur.com/clXg4wn.png" border="0">
+        <a routerLink="/products"><img style="height: 50px;" src="https://i.imgur.com/clXg4wn.png" border="0"></a>
         <span class="example-spacer"></span>
     <button routerLink="/products" mat-flat-button color="primary">Products</button>
     &nbsp;
@@ -7,11 +7,8 @@
     &nbsp;
     <button routerLink="/evolution" mat-flat-button color="primary">Evolution</button>
     &nbsp;
+    <button routerLink="/detail" mat-flat-button color="primary">Details</button>
 
 </mat-toolbar>
-
-<app-products></app-products>
-
-<app-pokemondetail></app-pokemondetail>
 
 <router-outlet></router-outlet>

@@ -10,8 +10,9 @@ import { Observable } from 'rxjs';
 })
 export class PapiService {
 url = `https://pokeapi.co/api/v2/`;
+detailurl: string = "";
 pokedetailvar: pokedetail = {
-
+  id: 0,
   name: "",
   ability : "",
   ability2 : "",
@@ -24,29 +25,28 @@ pokemonvar: Observable<pokemon[]>;
 
   constructor(private http: HttpClient) {
    }
-   getDetailPokemon(): pokedetail{
-     var pokemon = "mudkip";
+   getDetailPokemon(url: string): pokedetail{
+    this.detailurl = url;
      var request:any;
-     request = this.http.get(`${this.url}pokemon/${pokemon}`);
+     request = this.http.get(`${url}`);
      request.subscribe(p =>{
       this.pokedetailvar.name = p.forms[0].name;
       this.pokedetailvar.ability = p.abilities[0].ability.name;
       this.pokedetailvar.ability2 = p.abilities[1].ability.name;
       this.pokedetailvar.type = p.types[0].type.name;
       this.pokedetailvar.spritefront = p.sprites.front_default;
+      this.pokedetailvar.id = p.id;
       
-      request = this.http.get(`${this.pokedetailvar.pokedexurl}/258`);
+      request = this.http.get(`${this.pokedetailvar.pokedexurl}/${this.pokedetailvar.id}`);
       request.subscribe(p=>{
         this.pokedetailvar.pokedexdescription = p.flavor_text_entries[1].flavor_text;
       })
       
      })
-     
     return this.pokedetailvar;
      
    }
    getAllPokemon(): Observable<pokemon[]> {
-     this.pokemonvar;
     return this.http.get<[]>(`${this.url}pokemon`);
    }
    getImages(urls: string[]): string[] {

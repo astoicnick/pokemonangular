@@ -6,6 +6,7 @@ export class pokedetail{
     spritefront: string;
     pokedexdescription: string;
     pokedexurl: string;
+    id: number;
 
 
 }

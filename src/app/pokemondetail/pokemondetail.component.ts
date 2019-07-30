@@ -9,9 +9,8 @@ import {PapiService} from '../papi.service';
 export class PokemondetailComponent implements OnInit {
 stringToDisplay: string = "Hey";
 pokemonToDisplay: pokedetail;
-
+detailurl: string;
   constructor(private papi: PapiService) { 
-
 
   }
 
@@ -20,6 +19,7 @@ pokemonToDisplay: pokedetail;
   }
 
   getPokemon(){
-    this.pokemonToDisplay = this.papi.getDetailPokemon();
+    this.detailurl = this.papi.detailurl;
+    this.pokemonToDisplay = this.papi.getDetailPokemon(this.detailurl);
   }
 }
