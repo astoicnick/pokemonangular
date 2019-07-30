@@ -1,6 +1,8 @@
+
 mat-card {
 width: 14vw;
 float: left;
+margin: 5px;
 }
 .mat-card-styling{
 border-color:rgba(255, 255, 255, 1);

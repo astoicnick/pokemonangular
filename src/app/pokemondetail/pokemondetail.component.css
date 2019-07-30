@@ -1,8 +1,7 @@
 .pokemondetails{
-
-  text-align:center;
+text-align:center;
   
-  border-top-color: black;
+border-top-color: black;
 
 border-top-width: 1px;
 
@@ -26,10 +25,11 @@ border-left-width: 1px;
 
 border-left-style: solid;
 
-
-
-
+text-align: center;
 }
 .spritefront{
   width:25%;
+}
+.mat-card {
+  text-align: center;
 }
