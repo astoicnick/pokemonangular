@@ -10,44 +10,43 @@ import { Router } from '@angular/router';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-pokemonList: Observable<pokemon[]>;
-imageArray: string[] = [];
+  pokemonList: Observable<pokemon[]>;
+  imageArray: string[] = [];
 
   constructor(private PokemonService: PapiService, private router: Router) { }  
 
   ngOnInit() {
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-  console.log(this.PokemonService.getAllPokemon())
-=======
-    this.imageArray = [];
-    this.pokemonList = [];
     console.log('hey');
-=======
->>>>>>> 7e767d97ecffa6eacfb7dac0dffdc26bd57823a7
     this.getPokemon();
-  }
-  getPokemon() {
-    this.PokemonService.getAllPokemon()
-    .subscribe(p => { 
-      this.pokemonList = p.results;
-      this.getUrls();
-    });
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> 7e767d97ecffa6eacfb7dac0dffdc26bd57823a7
-  }
+  } 
+    getPokemon() {
+      this.PokemonService.getAllPokemon()
+      .subscribe(p => {
+        let data:any = p;
+        this.pokemonList = data.results;
+        this.getUrls();
+      });
+      console.log(this.PokemonService.offset);
+    }
   getUrls() {
     var urlArray: string[] = [];
     this.pokemonList.forEach(p => {
-      urlArray.push(p.url);
+      let data:any = p;
+      urlArray.push(data.url);
     });
     this.imageArray = this.PokemonService.getImages(urlArray);
   }
   detail(url: string) {
     this.PokemonService.detailurl = url;
     this.router.navigate(['detail']);
+  }
+  NextPage(){
+    this.PokemonService.NextPage();
+    location.reload();
+  }
+  PrevPage(){
+    this.PokemonService.PrevPage();
+    location.reload();
   }
   
 

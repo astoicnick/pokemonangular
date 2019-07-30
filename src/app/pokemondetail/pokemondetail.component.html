@@ -1,21 +1,19 @@
 <div class="pokemondetails">
-    <h1>
         <mat-card class="example-card">
             <mat-card-header>
-
-                <mat-card-title>{{pokemonToDisplay.name}}</mat-card-title>
-                <mat-card-subtitle>{{pokemonToDisplay.type}} type pokemon</mat-card-subtitle>
+                <mat-card-title>{{pokemonToDisplay.name | titlecase}}</mat-card-title>
+                <mat-card-subtitle>{{pokemonToDisplay.type | titlecase}} Type</mat-card-subtitle>
             </mat-card-header>
 
             <img class="spritefront" mat-card-image src={{pokemonToDisplay.spritefront}}
-                alt="Photo of a {{pokemonToDisplay.name}}">
+                alt="Photo of a {{pokemonToDisplay.name | titlecase}}">
             <mat-card-content>
                 <hr>
-                abilities
+                Abilities
                 <p>
-                    {{pokemonToDisplay.ability}}, {{pokemonToDisplay.ability2}}
+                    {{pokemonToDisplay.ability | titlecase}}, {{pokemonToDisplay.ability2 | titlecase}}
                 </p>
-
+                <button mat-raised-button (click)="goBack()" color="primary">Go back</button>
                 <br>
                 <p>
                     {{pokemonToDisplay.pokedexdescription}}
@@ -26,5 +24,5 @@
         </mat-card>
 
 
-    </h1>
+    
 </div>

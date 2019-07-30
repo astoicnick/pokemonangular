@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 
 @Component({
   selector: 'app-about',
