@@ -16,6 +16,15 @@ imageArray: string[] = [];
   constructor(private PokemonService: PapiService, private router: Router) { }  
 
   ngOnInit() {
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+  console.log(this.PokemonService.getAllPokemon())
+=======
+    this.imageArray = [];
+    this.pokemonList = [];
+    console.log('hey');
+=======
+>>>>>>> 7e767d97ecffa6eacfb7dac0dffdc26bd57823a7
     this.getPokemon();
   }
   getPokemon() {
@@ -24,7 +33,10 @@ imageArray: string[] = [];
       this.pokemonList = p.results;
       this.getUrls();
     });
-
+<<<<<<< HEAD
+>>>>>>> Stashed changes
+=======
+>>>>>>> 7e767d97ecffa6eacfb7dac0dffdc26bd57823a7
   }
   getUrls() {
     var urlArray: string[] = [];
@@ -40,3 +52,4 @@ imageArray: string[] = [];
   
 
 }
+
