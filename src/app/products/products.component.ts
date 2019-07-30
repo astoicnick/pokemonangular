@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { PapiService } from '../papi.service';
 import { pokemon } from '../models/pokemon';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -8,19 +9,21 @@ import { pokemon } from '../models/pokemon';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-pokemonList: any[];
-blankpokevar: [];
-
+pokemonList: Observable<pokemon[]>;
+imageArray: string[] = [];
 
   constructor(private PokemonService: PapiService) { }  
 
   ngOnInit() {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   console.log(this.PokemonService.getAllPokemon())
 =======
     this.imageArray = [];
     this.pokemonList = [];
     console.log('hey');
+=======
+>>>>>>> 7e767d97ecffa6eacfb7dac0dffdc26bd57823a7
     this.getPokemon();
   }
   getPokemon() {
@@ -30,7 +33,20 @@ blankpokevar: [];
       this.pokemonList = p.results;
       this.getUrls();
     });
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> 7e767d97ecffa6eacfb7dac0dffdc26bd57823a7
   }
+  getUrls() {
+    var urlArray: string[] = [];
+    this.pokemonList.forEach(p => {
+      urlArray.push(p.url);
+    });
+    this.imageArray = this.PokemonService.getImages(urlArray);
+    console.log(this.imageArray);
+  }
+  
+
 }
 
