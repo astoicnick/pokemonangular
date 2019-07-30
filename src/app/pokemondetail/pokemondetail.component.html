@@ -6,20 +6,21 @@
                 <mat-card-title>{{pokemonToDisplay.name}}</mat-card-title>
                 <mat-card-subtitle>{{pokemonToDisplay.type}} type pokemon</mat-card-subtitle>
             </mat-card-header>
-            
-            <img class = "spritefront" mat-card-image src={{pokemonToDisplay.spritefront}} alt="Photo of a {{pokemonToDisplay.name}}">
+
+            <img class="spritefront" mat-card-image src={{pokemonToDisplay.spritefront}}
+                alt="Photo of a {{pokemonToDisplay.name}}">
             <mat-card-content>
                 <hr>
                 abilities
                 <p>
                     {{pokemonToDisplay.ability}}, {{pokemonToDisplay.ability2}}
                 </p>
-                
+
                 <br>
                 <p>
                     {{pokemonToDisplay.pokedexdescription}}
                 </p>
-                
+
 
             </mat-card-content>
         </mat-card>

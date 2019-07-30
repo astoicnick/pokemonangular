@@ -2,6 +2,7 @@ import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { PapiService } from '../papi.service';
 import { pokemon } from '../models/pokemon';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -12,7 +13,7 @@ export class ProductsComponent implements OnInit {
 pokemonList: Observable<pokemon[]>;
 imageArray: string[] = [];
 
-  constructor(private PokemonService: PapiService) { }  
+  constructor(private PokemonService: PapiService, private router: Router) { }  
 
   ngOnInit() {
 <<<<<<< HEAD
@@ -27,7 +28,6 @@ imageArray: string[] = [];
     this.getPokemon();
   }
   getPokemon() {
-    var blank: [];
     this.PokemonService.getAllPokemon()
     .subscribe(p => { 
       this.pokemonList = p.results;
@@ -44,7 +44,10 @@ imageArray: string[] = [];
       urlArray.push(p.url);
     });
     this.imageArray = this.PokemonService.getImages(urlArray);
-    console.log(this.imageArray);
+  }
+  detail(url: string) {
+    this.PokemonService.detailurl = url;
+    this.router.navigate(['detail']);
   }
   
 

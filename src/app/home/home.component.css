@@ -1,0 +1,24 @@
+.masthead {
+    background-color: lightskyblue;
+    height: 90vh;
+    margin: 0 auto;
+    align-content: center;
+    text-align: center;
+    padding: 0px;
+}
+.masthead img {
+    height: 60%;
+    width: 100vw;
+    margin: 0 auto;
+    padding: 0px;
+}
+.mastheadcontent {
+    background-color: yellow;
+    border: 10px solid black;
+}
+.mastheadcontent h1 {
+    margin: 0 auto;
+}
+.mastheadcontent h2 {
+    
+}
